@@ -12,6 +12,7 @@
   "dependencies": {
     "glob": "^5.0.14",
     "hapi": "^10.0.1",
+    "joi": "^6.7.1",
     "monk": "^1.0.1"
   },
   "devDependencies": {},
