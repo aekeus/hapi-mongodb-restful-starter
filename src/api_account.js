@@ -1,6 +1,9 @@
 const assert = require('assert');
 const BASE_PATH = "/api/1/accounts";
 
+// PUT adds or updates an item at a known URL
+// POST creates of updates an item in a known collection
+
 exports.setup = function(server, db) {
 
   let accounts = db.get('accounts');
@@ -9,11 +12,11 @@ exports.setup = function(server, db) {
     method: ['GET'],
     path: `${BASE_PATH}/{account?}`,
     handler: function (request, response) {
-
-      let promise = accounts.find();
-      promise.on('success', function(docs){
-        response(docs);
-      });
+      if(request.params.account === undefined) {
+        accounts.find({}, (err, docs) => response(docs));
+      } else {
+        accounts.findById(request.params.account, (err, docs) => response(docs));
+      }
     }
   });
 
