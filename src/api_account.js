@@ -21,13 +21,20 @@ exports.setup = function(server, db) {
   });
 
   server.route({
-    method: ['PUT'],
+    method: ['PUT', 'POST'],
     path: `${BASE_PATH}/{account?}`,
     handler: function (req, response) {
-      accounts.insert(req.payload, function(err, doc) {
-        assert.equal(null, err);
-        response(doc);
-      });
+      if (req.params.account) {
+        accounts.updateById(req.payload._id, req.payload, function(err, doc) {
+          assert.equal(null, err);
+          response(req.payload);
+        });
+      } else {
+        accounts.insert(req.payload, function(err, doc) {
+          assert.equal(null, err);
+          response(doc);
+        });
+      }
     }
   });
 
