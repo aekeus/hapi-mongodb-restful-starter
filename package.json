@@ -1,0 +1,23 @@
+{
+  "name": "hapi-mongodb-starter",
+  "version": "1.0.0",
+  "description": "Starter project",
+  "main": "bin/api.js",
+  "bin": {
+    "hapi-mongodb-starter": "api.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "glob": "^5.0.14",
+    "hapi": "^10.0.1",
+    "monk": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aubrey Keus",
+  "license": "ISC"
+}
