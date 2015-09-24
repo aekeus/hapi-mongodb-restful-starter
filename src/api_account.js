@@ -2,9 +2,6 @@ const assert = require('assert');
 const BASE_PATH = "/api/1/accounts";
 const Joi = require('joi');
 
-// PUT adds or updates an item at a known URL
-// POST creates of updates an item in a known collection
-
 exports.setup = function(server, db) {
 
   let accounts = db.get('accounts');
